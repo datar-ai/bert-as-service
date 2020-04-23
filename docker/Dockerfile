@@ -6,12 +6,12 @@ RUN apt update
 RUN apt install wget
 RUN wget https://storage.googleapis.com/bert_models/2018_10_18/uncased_L-24_H-1024_A-16.zip
 RUN unzip uncased_L-24_H-1024_A-16.zip
-COPY ./ /app
-RUN pip list -v
-RUN ls /usr/local/lib/python3.5/dist-packages/bert_serving_server-1.10.0.dist-info
-COPY ./docker/entrypoint.sh /app
+RUN mkdir /app
+RUN mv uncased_L-24_H-1024_A-16 /app
+#RUN bert-serving-start -model_dir /tmp/english_L-12_H-768_A-12/ -num_worker=4 
+RUN wget https://github.com/datar-ai/bert-as-service/raw/master/docker/entrypoint.sh
+RUN mv ./entrypoint.sh /app
 WORKDIR /app
 ENTRYPOINT ["/app/entrypoint.sh"]
 CMD []
-
 
