@@ -1,6 +1,6 @@
 #!/bin/bash
-set -xv
-echo "ENTRYPOINT arguments:" + $1
+set -x
+echo "ENTRYPOINT arguments:" $1 $2
 if [ "$1" = "bash" ]
 then
   bash
