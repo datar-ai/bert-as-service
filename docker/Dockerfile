@@ -15,11 +15,11 @@ RUN mkdir /app
 #RUN mv uncased_L-24_H-1024_A-16 /app
 RUN mv uncased_L-12_H-768_A-12 /app
 RUN mv chinese_L-12_H-768_A-12 /app
-RUN wget https://github.com/datar-ai/bert-as-service/raw/master/docker/entrypoint.sh
+RUN wget https://github.com/datar-ai/bert-as-service/raw/master/docker/bert-serving-start.sh
 RUN mv ./entrypoint.sh /app
-RUN chmod 777 /app/entrypoint.sh
+RUN chmod 777 /app/bert-serving-start.sh
 WORKDIR /app
-ENTRYPOINT ["/app/entrypoint.sh"]
+ENTRYPOINT ["/app/bert-serving-start.sh"]
 #ENTRYPOINT bert-serving-start -http_port 8001 -num_worker=1 -model_dir 
 CMD ["base"]
 
