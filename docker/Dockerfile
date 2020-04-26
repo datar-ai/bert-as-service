@@ -16,6 +16,7 @@ RUN wget https://github.com/datar-ai/bert-as-service/raw/master/docker/entrypoin
 RUN mv ./entrypoint.sh /app
 RUN chmod 777 /app/entrypoint.sh
 WORKDIR /app
-ENTRYPOINT ["/app/entrypoint.sh"]
-CMD []
+#ENTRYPOINT ["/app/entrypoint.sh"]
+ENTRYPOINT bert-serving-start -http_port 8001 -num_worker=1 -model_dir /app/uncased_L-12_H-768_A-12/
+#CMD []
 
