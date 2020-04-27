@@ -16,7 +16,7 @@ RUN mkdir /app
 RUN mv uncased_L-12_H-768_A-12 /app
 RUN mv chinese_L-12_H-768_A-12 /app
 RUN wget https://github.com/datar-ai/bert-as-service/raw/master/docker/bert-serving-start.sh
-RUN mv ./entrypoint.sh /app
+RUN mv ./bert-serving-start.sh /app
 RUN chmod 777 /app/bert-serving-start.sh
 WORKDIR /app
 ENTRYPOINT ["/app/bert-serving-start.sh"]
