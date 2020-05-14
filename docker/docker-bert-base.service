@@ -1,0 +1,10 @@
+[Unit]
+Description=BERT container
+Requires=docker.service
+After=docker.service
+[Service]
+Restart=always
+ExecStart=/usr/bin/docker run --gpus all -p 5555:5555 -p 5556:5556 -p 8001:8001 deliah/bert-as-service-en base -max_seq_len NONE
+ExecStop=/usr/bin/docker stop -t 2 deliah/bert-as-service-en
+[Install]
+WantedBy=default.target
