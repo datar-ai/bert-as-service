@@ -5,6 +5,6 @@ After=docker.service
 [Service]
 Restart=always
 ExecStart=/usr/bin/docker run --gpus all -p 5555:5555 -p 5556:5556 -p 8001:8001 -v /home/ubuntu/bert-model:/app deliah/bert-as-service base -max_seq_len NONE
-ExecStop=/usr/bin/docker stop -t 2 deliah/bert-as-service-en
+ExecStop=/usr/bin/docker stop -t 2 deliah/bert-as-service
 [Install]
 WantedBy=default.target
