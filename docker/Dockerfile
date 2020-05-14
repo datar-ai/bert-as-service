@@ -6,7 +6,7 @@ RUN cat /etc/lsb-release
 RUN apt update
 RUN apt install wget
 RUN mkdir /app
-VOLUME /app/data
+#VOLUME /app/data
 #RUN wget https://storage.googleapis.com/bert_models/2018_10_18/uncased_L-24_H-1024_A-16.zip
 #RUN wget https://storage.googleapis.com/bert_models/2018_10_18/uncased_L-12_H-768_A-12.zip
 #RUN wget https://storage.googleapis.com/bert_models/2018_11_03/chinese_L-12_H-768_A-12.zip
@@ -23,4 +23,3 @@ WORKDIR /app
 ENTRYPOINT ["/app/bert-serving-start.sh"]
 #ENTRYPOINT bert-serving-start -http_port 8001 -num_worker=1 -model_dir 
 CMD ["base"]
-
