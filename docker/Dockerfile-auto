@@ -20,5 +20,5 @@ RUN mv uncased_L-12_H-768_A-12 /app
 #RUN mv ./bert-serving-start.sh /app
 #RUN chmod 777 /app/bert-serving-start.sh
 WORKDIR /app
-ENTRYPOINT ["bert-serving-start -http_port 8001 -num_worker=1 -model_dir /app/uncased_L-12_H-768_A-12  
+ENTRYPOINT ["bert-serving-start -http_port 8001 -num_worker=1 -model_dir /app/uncased_L-12_H-768_A-12 -max_seq_len NONE "]  
 CMD ["base"]
